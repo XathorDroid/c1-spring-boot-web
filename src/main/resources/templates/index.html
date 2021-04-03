@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Hello World</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-<h1 th:text="${title}"></h1>
+<h1 class="red-title" th:text="${title}"></h1>
+<h2 class="blue-title">CSS as static resources</h2>
+<img th:src="@{/images/yoda_profile.webp}" th:width="300" th:height="300"/>
 </body>
 </html>

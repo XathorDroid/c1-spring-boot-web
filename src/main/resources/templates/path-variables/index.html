@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Example for PathVariable - Index</title>
+</head>
+<body>
+<h1>Example for PathVariable - Index</h1>
+<ul>
+    <li>
+        <a th:href="@{/path-variables/}">/path-variables</a>
+    </li>
+    <li>
+        <a th:href="@{/path-variables/string/} + 'Hey Spring!'">/path-variables/string/Hey Spring!</a>
+    </li>
+    <li>
+        <a th:href="@{/path-variables/string/} + 'Example 2'">/path-variables/string/Example 2</a>
+    </li>
+    <li>
+        <a th:href="@{/path-variables/string/} + 'Example Mix' + '/' + 7">/path-variables/string/Example Mix/7</a>
+    </li>
+</ul>
+</body>
+</html>

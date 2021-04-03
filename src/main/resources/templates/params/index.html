@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Example for RequestParams - Index</title>
+</head>
+<body>
+<h1>Example for RequestParams - Index</h1>
+<ul>
+    <li>
+        <a th:href="@{/params/}">/params</a>
+    </li>
+    <li>
+        <a th:href="@{/params/string(text='Hey Spring!')}">/params/string?text=Hey Spring!</a>
+    </li>
+    <li>
+        <a th:href="@{/params/string(text='Example 2')}">/params/string?text=Example 2</a>
+    </li>
+    <li>
+        <a th:href="@{/params/string(text='Another Example')}">/params/string?text=Another Example</a>
+    </li>
+    <li>
+        <a th:href="@{/params/mix-params(greeting='Ey! How are you?', number=8)}">/params/mix-params?greeting=Ey! How are you?&number=8</a>
+    </li>
+    <li>
+        <a th:href="@{/params/mix-params-request(greeting='Ey! How are you?', number=8)}">/params/mix-params-request?greeting=Ey! How are you?&number=8</a>
+    </li>
+</ul>
+</body>
+</html>

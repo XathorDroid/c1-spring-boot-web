@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+<h1 th:text="${title}"></h1>
+
+<span th:text="${user.getFirstName()}"></span>
+<span th:text="${user.getLastName()}"></span>
+<br/>
+<span th:if="${user.getEmail()}" th:text="${user.getEmail()}"></span>
+<span th:if="${user.getEmail() == null}">El usuario no tiene correo</span>
+</body>
+</html>

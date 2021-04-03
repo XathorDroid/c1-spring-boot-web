@@ -37,7 +37,7 @@ Using the Thymeleaf properties with the namespace value, use the `$` sign and in
 </html>
 ```
 
-Using Model:
+### Model
 ```
 @GetMapping(value ="/index")
 public String index(Model model) {
@@ -46,7 +46,7 @@ public String index(Model model) {
 }
 ```
 
-Using ModelMap:
+### ModelMap
 ```
 @GetMapping(value = "/index")
 public String indexModelMap(ModelMap model) {
@@ -55,7 +55,7 @@ public String indexModelMap(ModelMap model) {
 }
 ```
 
-Using Map
+### Map
 ```    
 @GetMapping(value = "/index")
 public String indexMap(Map<String, Object> map) {
@@ -64,12 +64,27 @@ public String indexMap(Map<String, Object> map) {
 }
 ```
 
-Using ModelAndView
+### ModelAndView
 ``` 
 @GetMapping(value = "/index")
 public ModelAndView indexModelAndView(ModelAndView mv) {
     mv.addObject("title", "Hello Spring Framework!");
     mv.setViewName("index");
     return mv;
+}
+```
+
+### With Annotation
+We can also load data in a model attribute using an annotation in a specific function. Do it will do available that attribute to all views loaded in that controller.
+```
+@ModelAttribute("users")
+public List<User> createUsersList() {
+    List<User> users = new ArrayList<>();
+    
+    users.add(new User("Roberto", "Dos Santos", "user-one@email.com"));
+    users.add(new User("Alfonso", "Jiménez", "user-two@email.com"));
+    users.add(new User("Felipe", "Dos Santos", "user-three@email.com"));
+    
+    return users;
 }
 ```

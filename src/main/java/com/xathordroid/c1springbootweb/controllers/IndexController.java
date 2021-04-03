@@ -4,6 +4,7 @@ import com.xathordroid.c1springbootweb.models.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
@@ -34,14 +35,19 @@ public class IndexController {
     
     @GetMapping(value = "/list")
     public String listUsers(Model model) {
+        model.addAttribute("title", "Users List");
+
+        return "users-list";
+    }
+    
+    @ModelAttribute("users")
+    public List<User> createUsersList() {
         List<User> users = new ArrayList<>();
+        
         users.add(new User("Roberto", "Dos Santos", "user-one@email.com"));
         users.add(new User("Alfonso", "Jiménez", "user-two@email.com"));
         users.add(new User("Felipe", "Dos Santos", "user-three@email.com"));
-
-        model.addAttribute("title", "Users List");
-        model.addAttribute("users", users);
-
-        return "users-list";
+        
+        return users;
     }
 }

@@ -1,6 +1,7 @@
 package com.xathordroid.c1springbootweb.controllers;
 
 import com.xathordroid.c1springbootweb.models.User;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,9 +15,16 @@ import java.util.List;
 @RequestMapping("/app")
 public class IndexController {
     
+    @Value("${text.indexcontroller.index.title}")
+    private String indexText;
+    @Value("${text.indexcontroller.profile.title}")
+    private String profileText;
+    @Value("${text.indexcontroller.list.title}")
+    private String listText;
+    
     @GetMapping(value = "/index")
     public String index(Model model) {
-        model.addAttribute("title", "Hello Spring Framework!");
+        model.addAttribute("title", indexText);
         return "index";
     }
     
@@ -27,7 +35,7 @@ public class IndexController {
         user.setLastName("dos Santos");
         user.setEmail("userEmail@mail.com");
         
-        model.addAttribute("title", "User ".concat(user.getFirstName()));
+        model.addAttribute("title", profileText.concat(user.getFirstName()));
         model.addAttribute("user", user);
 
         return "profile";
@@ -35,7 +43,7 @@ public class IndexController {
     
     @GetMapping(value = "/list")
     public String listUsers(Model model) {
-        model.addAttribute("title", "Users List");
+        model.addAttribute("title", listText);
 
         return "users-list";
     }
